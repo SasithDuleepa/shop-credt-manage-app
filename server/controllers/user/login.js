@@ -10,7 +10,7 @@ const LogIn =async (req,res) => {
                 if(result.length > 0){
                     //user found
 
-                    if(result[0].password === Password){
+                    if(result[0].user_password === Password){
                         //password matched
                         res.status(200).json({message:"Login success" , user:result[0]})
                     }else{
