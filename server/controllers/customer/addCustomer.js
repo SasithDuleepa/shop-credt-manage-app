@@ -18,8 +18,8 @@ const AddCustomer = (req,res) => {
                     return res.status(400).json({msg: "Customer already exists"})
                 }else{
                     // insert the data into the database
-        const sql = "INSERT INTO customers ( customer_name, customer_contact_no, customer_nic, customer_address,  customer_add_date, customer_add_user_id, customer_status) VALUES (?,?,?,?,?,?,?)"
-        DB.connection.query(sql, [customer_name, customer_contact_no, customer_nic, customer_address,  req.date , req.user, 'active'], (err, result) => {
+        const sql = "INSERT INTO customers ( customer_name, customer_contact_no, customer_nic, customer_address,  customer_add_date, customer_add_user_id, customer_status,total_payable) VALUES (?,?,?,?,?,?,?)"
+        DB.connection.query(sql, [customer_name, customer_contact_no, customer_nic, customer_address,  req.date , req.user, 'active',0], (err, result) => {
             if(err){
                 console.log(err)
             }else{
